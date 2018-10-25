@@ -25,6 +25,7 @@ header h1 {
 @media only screen and (min-width: 768px) {
 	header {
 		margin-bottom: 4em;
+		background-size: 100% 100%;
 	}
 }
 
@@ -32,6 +33,7 @@ header h1 {
 	header {
 		height: 100%;
 		padding-top: 11em;
+	    background-size: 100% 100%;
 	}
 	header #cd-logo {
 		position: absolute;
