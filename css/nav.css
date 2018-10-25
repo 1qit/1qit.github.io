@@ -21,6 +21,11 @@ header #cd-logo {
 header h1 {
 	font-size: 1.25rem;
 }
+@media(min-width: 768px) and (max-width: 1170px) {
+	header #cd-logo {
+	text-align:left
+}
+}
 
 @media only screen and (min-width: 768px) {
 	header {
