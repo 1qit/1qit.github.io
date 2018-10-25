@@ -168,6 +168,7 @@ header h1 {
 		padding: .4em;
 		margin-left: 1.6em;
 		border-bottom: none;
+		color: #ffffff;
 	}
 	#cd-nav li a:hover {
 		color: gray;
