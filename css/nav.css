@@ -25,6 +25,12 @@ header h1 {
 @media only screen and (min-width: 768px) {
 	header {
 		margin-bottom: 4em;
+		background-size: 100% 100%;
+	}
+	header #cd-logo {
+		position: absolute;
+		top: 40px;
+		left: 5%;
 	}
 }
 
@@ -32,6 +38,7 @@ header h1 {
 	header {
 		height: 100%;
 		padding-top: 11em;
+	    background-size: 100% 100%;
 	}
 	header #cd-logo {
 		position: absolute;
@@ -168,6 +175,7 @@ header h1 {
 		padding: .4em;
 		margin-left: 1.6em;
 		border-bottom: none;
+		color: #ffffff;
 	}
 	#cd-nav li a:hover {
 		color: gray;
@@ -196,6 +204,7 @@ header h1 {
 		padding: 1.6em;
 		margin-left: 0;
 		border-bottom: 1px solid #eff2f6;
+		color:#000
 	}
 	#cd-nav ul.has-transitions {
 		/* this class is used to bring back transitions when the navigation moves at the bottom right */
