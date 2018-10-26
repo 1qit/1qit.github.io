@@ -188,7 +188,7 @@
 			<div class="am-article-bd">
 				<div class="content" id="post-content">
 					
-						<p>后台触发存储型XSS，网站设置http-only，窃取的cookie无效。那么如何在这种情况下利用xss漏洞。无法获取cookie，但是我们可以利用xss漏洞，以管理员的权限，添加一个新的管理员。没错，就是让管理员给我们加一个高权限账号。这里我们会用到 JavaScript和Ajax 技术。 利用xmlhttp 发送一个http请求，在后台发送一个添加管理员的post请求。</p>
+						<p>1.XSS攻击管理员<br>后台触发存储型XSS，网站设置http-only，窃取的cookie无效。那么如何在这种情况下利用xss漏洞。无法获取cookie，但是我们可以利用xss漏洞，以管理员的权限，添加一个新的管理员。没错，就是让管理员给我们加一个高权限账号。这里我们会用到 JavaScript和Ajax 技术。 利用xmlhttp 发送一个http请求，在后台发送一个添加管理员的post请求。<br><img src="/2018/10/10/XSS攻击另类玩法/xss1.jpg" alt=""><br>2.XSS截取客户的屏幕<br>现在随着技术的进步，前端技术支持的面非常广泛。xss漏洞可以利用html5的 canvas 来进行屏幕的截屏功能，类似于远程控制木马查看对方屏幕功能。这个可以大大的提高对于进一步入侵的信息收集。废话不说直接上代码。这里需要用到一个js库 html2canvas.js<br><img src="/2018/10/10/XSS攻击另类玩法/xss2.jpg" alt=""><br>上面的代码是针对 pc端的截屏，手机端的截屏xss代码有所不同<br><img src="/2018/10/10/XSS攻击另类玩法/xss3.jpg" alt=""><br>这两种服务端获取到的post数据包是 base64格式的 ，我们只要进行转码即可看到对方的屏幕截图。<br>3.现在越来越多的人喜欢用手机查看网页，xss针对手机端的支持也很友好。这里只针对手机端Firefox浏览器说明。xss获取对方经纬度代码<br><img src="/2018/10/10/XSS攻击另类玩法/xss4.jpg" alt=""><br>xss获取电池状态的代码，这里需要用到JavaScript Battery API<br><img src="/2018/10/10/XSS攻击另类玩法/xss5.jpg" alt=""></p>
 
 					
 				</div>
