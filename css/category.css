@@ -22,6 +22,8 @@
 .category-list a {
 	display: inline-block;
 	border-bottom: 1px dashed lightgray;
+	color: #57c4fb;
+    font-size: 18px;
 }
 
 .category-list a:hover {
