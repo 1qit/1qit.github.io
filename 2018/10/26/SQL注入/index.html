@@ -1,0 +1,450 @@
+
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head>
+	<title>SQL注入</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+		
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( /img/1.jpg );">	
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>当前文章&nbsp;:&nbsp;《SQL注入》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		10/26/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/10/26/SQL注入/" itemprop="url">		
+			SQL注入		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/10/26/SQL注入/" itemprop="url">
+	<time datetime="2018-10-26T07:51:35.000Z" itemprop="datePublished">
+  		2018-10-26
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#SQL" title="SQL" rel="1">SQL</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p>漏洞简介</p>
+<p>Metinfo 米拓企业建站系统是一款适合企业网站建设的开源CMS系统,近期互联网上公开爆出 Metinfo 6.1.2 版本存在SQL注入漏洞，随后一秋网络安全团队对其漏洞进行了复现与分析。</p>
+<p>漏洞分析</p>
+<p>漏洞触发的代码在 /app/system/message/web/message.class.php 文件 第37行，add方法部分。</p>
+<p> 1   public function add($info) {<br> 2        global $_M;<br> 3        if(!$_M[form][id]){<br> 4           $message=DB::get_one(“select <em> from {$_M[table][column]} where module= 7 and lang<br>             =’{$_M[form][lang]}’”);<br> 5           $_M[form][id]=$message[id];<br> 6        }<br> 7        $met_fd_ok=DB::get_one(“select </em> from {$_M[table][config]} where lang =’{$_M[form][lang]}’ and<br>          name= ‘met_fd_ok’ and columnid = {$_M[form][id]}”);<br> 8        $_M[config][met_fd_ok]= $met_fd_ok[value];<br> 9        if(!$_M[config][met_fd_ok])okinfo(‘javascript:history.back();’,”{$_M[word][Feedback5]}”);<br>10        if($_M[config][met_memberlogin_code]){<br>11            if(!load::sys_class(‘pin’, ‘new’)-&gt;check_pin($_M[‘form’][‘code’])){<br>12<br>13                        okinfo(-1, $_M[‘word’][‘membercode’]);<br>14            }<br>15        }</p>
+<p>从上述代码分析发现  $met_fd_ok=DB::get_one(“select * from {$_M[table][config]} where lang =’{$_M[form][lang]}’ and  name= ‘met_fd_ok’ and columnid = {$_M[form][id]}”); 语句中 {$_M[form][id]} 参数，没有用单引号引起来判断此处应该有SQL注入漏洞。</p>
+<p>直接拼接SQL 注入payload发现，注入的payload被过滤，无法直接进行SQL注入。继续往下分析。</p>
+<p>继续分析发现 message.class.php 文件 调用了 class feedback extends web  父类初始化函数，跟进web类。</p>
+<p>web类定义在  /app/system/include/class/web.class.php 文件。分析web类，没有发现对参数进行过滤的函数，但是发现初始化了 common类。 跟进common类，定义在/app/system/include/class/common.class.php文件。</p>
+<p> 1   public function __construct() {<br> 2        global $_M;//全局数组$_M<br> 3        ob_start();//开启缓存<br> 4        $this-&gt;load_mysql();//数据库连接<br> 5        $this-&gt;load_form();//表单过滤<br> 6        $this-&gt;load_lang();//加载语言配置<br> 7        $this-&gt;load_config_global();//加载全站配置数据<br> 8        $this-&gt;load_url_site();<br> 9        $this-&gt;load_config_lang();//加载当前语言配置数据<br>10        $this-&gt;load_url();//加载url数据<br>11    }</p>
+<p>发现问题关键点，$this-&gt;load_form();//表单过滤,继续跟进$this-&gt;load_form();函数。</p>
+<p>在/app/system/include/class/common.class.php文件51行、</p>
+<p> 1  protected function load_form() {<br> 2        global $_M;<br> 3        $_M[‘form’] =array();<br> 4        isset($_REQUEST[‘GLOBALS’]) &amp;&amp; exit(‘Access Error’);<br> 5        foreach($_COOKIE as $_key =&gt; $_value) {<br> 6            $<em>key{0} != ‘</em>‘ &amp;&amp; $_M[‘form’][$_key] = daddslashes($_value);<br> 7        }<br> 8        foreach($_POST as $_key =&gt; $_value) {<br> 9            $<em>key{0} != ‘</em>‘ &amp;&amp; $_M[‘form’][$_key] = daddslashes($_value);<br>10        }<br>11        foreach($_GET as $_key =&gt; $_value) {<br>12            $<em>key{0} != ‘</em>‘ &amp;&amp; $_M[‘form’][$_key] = daddslashes($_value);<br>13        }<br>14        if(is_numeric($_M[‘form’][‘lang’])){//伪静态兼容<br>15            $_M[‘form’][‘page’] = $_M[‘form’][‘lang’];<br>16            $_M[‘form’][‘lang’] = ‘’;<br>17        }<br>18        if($_M[‘form’][‘metid’] == ‘list’){<br>19            $_M[‘form’][‘list’] = 1;<br>20            $_M[‘form’][‘metid’] = $_M[‘form’][‘page’];<br>21            $_M[‘form’][‘page’] = 1;<br>22        }<br>23        if(!preg_match(‘/^[0-9A-Za-z]+$/‘, $_M[‘form’][‘lang’]) &amp;&amp; $_M[‘form’][‘lang’]){<br>24            echo “No data in the database,please reinstall.”;<br>25            die();<br>26        }<br>27    }</p>
+<p>这里看到把 POST、GET、COOKIE 传递过来的参数用daddslashes进行了全局过滤。跟进 daddslashes。</p>
+<p> 1  function daddslashes($string, $force = 0) {<br> 2    !defined(‘MAGIC_QUOTES_GPC’) &amp;&amp; define(‘MAGIC_QUOTES_GPC’, get_magic_quotes_gpc());<br> 3    if(!MAGIC_QUOTES_GPC || $force) {<br> 4        if(is_array($string)) {<br> 5            foreach($string as $key =&gt; $val) {<br> 6                $string[$key] = daddslashes($val, $force);<br> 7            }<br> 8        } else {<br> 9            if(!defined(‘IN_ADMIN’)){<br>10                $string = trim(addslashes(sqlinsert($string)));<br>11            }else{<br>12                $string = trim(addslashes($string));<br>13            }<br>14        }<br>15    }<br>16    return $string;<br>17}</p>
+<p>这里判断是否开启了get_magic_quotes_gpc() ，如果没开启或者 $force不为空就进入下面的逻辑。有判断了是否定义IN_ADMIN 常量，如果没有定义就进入 $string = trim(addslashes(sqlinsert($string)));,从代码逻辑发现我们第一步进行SQL注入，失败是因为注入的payload被过滤导致，那么我们传递的值应该就是进入了这个过滤，用sqlinsert函数进行了过滤。</p>
+<p>看一下sqlinsert函数是怎么进行的过滤。</p>
+<p> 1function sqlinsert($string){<br> 2    if(is_array($string)){<br> 3        foreach($string as $key =&gt; $val) {<br> 4            $string[$key] = sqlinsert($val);<br> 5        }<br> 6    }else{<br> 7        $string_old = $string;<br> 8        $string = str_ireplace(“\“,”/“,$string);<br> 9        $string = str_ireplace(“\””,”/“,$string);<br>10        $string = str_ireplace(“‘“,”/“,$string);<br>11        $string = str_ireplace(“*”,”/“,$string);<br>12        $string = str_ireplace(“%5C”,”/“,$string);<br>13        $string = str_ireplace(“%22”,”/“,$string);<br>14        $string = str_ireplace(“%27”,”/“,$string);<br>15        $string = str_ireplace(“%2A”,”/“,$string);<br>16        $string = str_ireplace(“~”,”/“,$string);<br>17        $string = str_ireplace(“select”, “\sel\ect”, $string);<br>18        $string = str_ireplace(“insert”, “\ins\ert”, $string);<br>19        $string = str_ireplace(“update”, “\up\date”, $string);<br>20        $string = str_ireplace(“delete”, “\de\lete”, $string);<br>21        $string = str_ireplace(“union”, “\un\ion”, $string);<br>22        $string = str_ireplace(“into”, “\in\to”, $string);<br>23        $string = str_ireplace(“load_file”, “\load_\file”, $string);<br>24        $string = str_ireplace(“outfile”, “\out\file”, $string);<br>25        $string = str_ireplace(“sleep”, “\sle\ep”, $string);<br>26        $string = strip_tags($string);<br>27        if($string_old!=$string){<br>28            $string=’’;<br>29        }<br>30        $string = trim($string);<br>31    }<br>32    return $string;<br>33}</p>
+<p>利用这个SQL注入前提是绕过sqlinsert函数的过滤，绕过过滤不是很难就不详细解释。</p>
+<p>回到上面的代码，进入这个逻辑要满足IN_ADMIN 常量已被定义。 跟踪 IN_ADMIN 常量。</p>
+<p>在/admin/index.php文件中进行了定义。</p>
+<p> 1define(‘IN_ADMIN’, true);<br> 2//接口<br> 3$M_MODULE=’admin’;<br> 4if(@$_GET[‘m’])$M_MODULE=$_GET[‘m’];<br> 5if(@!$_GET[‘n’])$_GET[‘n’]=”index”;<br> 6if(@!$_GET[‘c’])$_GET[‘c’]=”index”;<br> 7if(@!$_GET[‘a’])$_GET[‘a’]=”doindex”;<br> 8@define(‘M_NAME’, $_GET[‘n’]);<br> 9@define(‘M_MODULE’, $M_MODULE);<br>10@define(‘M_CLASS’, $_GET[‘c’]);<br>11@define(‘M_ACTION’, $_GET[‘a’]);<br>12require_once ‘../app/system/entrance.php’;</p>
+<p>从上述代码发现 ,漏洞函数是add并且不带do，于是找到 do开头的函数。经过查找在/app/system/message/web/message.class.php文件找到了domessage。</p>
+<p> 1  public function domessage() {<br> 2        global $_M;<br> 3        if($_M[‘form’][‘action’] == ‘add’){<br> 4            $this-&gt;check_field();<br> 5            $this-&gt;add($_M[‘form’]);<br> 6<br> 7        }else{<br> 8            $classnow = $this-&gt;input_class();<br> 9            $data = load::sys_class(‘label’, ‘new’)-&gt;get(‘column’)-&gt;get_column_id($classnow);<br>10            $this-&gt;check($data[‘access’]);<br>11            unset($data[‘id’]);<br>12            $this-&gt;add_array_input($data);<br>13            $this-&gt;seo($data[‘name’], $data[‘keywords’], $data[‘description’]);<br>14            $this-&gt;seo_title($data[‘ctitle’]);<br>15            $this-&gt;add_input(‘list’, 1);<br>16            require_once $this-&gt;template(‘tem/message_index’, $this-&gt;input);<br>17        }<br>18  }</p>
+<p>至此我们已经分析完了Metinfo 6.1.2 SQL注入漏洞参数的整个流程。</p>
+<p>漏洞证明</p>
+<p>SQL注入点：<br><a href="http://127.0.0.1//admin/index.php?m=web&amp;n=message&amp;c=message&amp;a=domessage&amp;action=add&amp;lang=cn&amp;para137=1&amp;para186=1&amp;para138=1&amp;para139=1&amp;para140=1&amp;id=42" target="_blank" rel="noopener">http://127.0.0.1//admin/index.php?m=web&amp;n=message&amp;c=message&amp;a=domessage&amp;action=add&amp;lang=cn&amp;para137=1&amp;para186=1&amp;para138=1&amp;para139=1&amp;para140=1&amp;id=42</a></p>
+<p>SQL盲注 payload：<br><a href="http://127.0.0.1//admin/index.php?m=web&amp;n=message&amp;c=message&amp;a=domessage&amp;action=add&amp;lang=cn&amp;para137=1&amp;para186=1&amp;para138=1&amp;para139=1&amp;para140=1&amp;id=42" target="_blank" rel="noopener">http://127.0.0.1//admin/index.php?m=web&amp;n=message&amp;c=message&amp;a=domessage&amp;action=add&amp;lang=cn&amp;para137=1&amp;para186=1&amp;para138=1&amp;para139=1&amp;para140=1&amp;id=42</a> and(ascii(substr((select database()),1,1)))=109</p>
+<p>漏洞修复方案</p>
+<p>修改文件：<br>/app/system/message/web/message.class.php</p>
+<p>修改前<br>1$met_fd_ok=DB::get_one(“select * from {$_M[table][config]} where lang =’{$_M[form][lang]}’ and  name= ‘met_fd_ok’ and columnid = {$_M[form][id]}”);</p>
+<p>修改后<br>1$met_fd_ok=DB::get_one(“select * from {$_M[table][config]} where lang =’{$_M[form][lang]}’ and  name= ‘met_fd_ok’ and columnid = ‘{$_M[form][id]}’”);</p>
+<p>官网已发布最新版本6.1.3修复此漏洞，请及时下载升级。</p>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2018/10/26/渗透课堂/" title="渗透课堂">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment valine -->
+			<!-- show valine comment -->
+<div id="valineComment" class="comment"></div>
+
+<!-- valine`s js & css -->
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/valine.min.js"></script>
+<link rel="stylesheet" href="/css/comment.css">
+
+<script>
+	var checkExistComment = setInterval(function() {
+		if( $('#valineComment').length ) {
+			new Valine({
+				// AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+				av: AV,
+				//使用id寻找div元素（使用class可能找不到）
+				el: '#valineComment',
+				emoticon_url: 'https://cloud.panjunwen.com/alu',
+				emoticon_list: ["吐.png", "期待.png", "高兴.png", "吐血倒地.png", "哭泣.png", "欢呼.png"],
+				app_id: "3333....", //获取APP ID
+				app_key: "3333......", //获取APP KEY
+				placeholder: "no any!", //评论框占位提示文字        			
+			});
+			clearInterval(checkExistComment);
+		}
+	}, 100);
+</script>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+                 
+					<a href="https://web2.qq.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+							
+				
+					<a href="https://weibo.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="mailto:sec@1qit.com" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+		吉林省一秋网络科技有限公司 吉ICP备17002063号-1
+		<!--	
+				&copy; 2017 - 2018, content by 一秋网络科技官方博客		       	
+			 -->
+		</div>
+	</div>
+
+<!--	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>-->
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #ffffff;
+		font-size: 20px;
+		margin: 124px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 175px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 186px 5% 0;
+			width: 90%;
+		}
+	}
+	@media(min-width: 768px) and (max-width: 1170px) {
+	.motto {
+			margin: 240px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+
