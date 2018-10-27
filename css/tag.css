@@ -18,8 +18,7 @@
 .tags a {
 	margin-right: 1em;
 	display: inline-block;
-	border-bottom: 1px dashed lightgray;
-	color: #57c4fb;
+	color: #57c4fb !important;
 	background: url(../img/3.jpg) no-repeat;
 	border-radius: 20px;
     width: 110px;
