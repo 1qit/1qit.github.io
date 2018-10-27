@@ -45,10 +45,12 @@
 .continue-read {
 	padding: 0.5rem 1rem;
 	float: right;
-	color:white;
-	background: url(../img/3.jpg) no-repeat;
+	border-radius: 10px;
+	background: url(../img/2.jpg) no-repeat;
 }
-
+.continue-read a{
+	color:#ffffff
+}
 .continue-read :hover {
 	font-weight: bold;
 }
