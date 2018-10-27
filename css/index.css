@@ -45,12 +45,12 @@
 .continue-read {
 	padding: 0.5rem 1rem;
 	float: right;
-	background: url(../img/2.jpg) no-repeat;
+	color:white;
+	background: url(../img/3.jpg) no-repeat;
 }
 
 .continue-read :hover {
 	font-weight: bold;
-	background: url(../img/3.jpg) no-repeat;
 }
 
 @media(max-width:512px) {
