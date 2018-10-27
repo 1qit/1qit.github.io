@@ -68,6 +68,7 @@ b {
 
 .content p {
 	margin: 0 0 .8em;
+    text-align: center;
 }
 
 .content ul,
@@ -109,6 +110,7 @@ b {
 
 .content img {
 	cursor: pointer;
+	margin: 0 auto;
 }
 
 .content pre,
