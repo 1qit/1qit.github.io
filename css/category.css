@@ -21,16 +21,20 @@
 
 .category-list a {
 	display: inline-block;
-	border-bottom: 1px dashed lightgray;
 	color: #57c4fb;
     font-size: 18px;
-	background:url(img/2.jpg) no-repeat
+    background: url(../img/2.jpg) no-repeat;
+    border-radius: 20px;
+    width: 110px;
+    text-align: center;
+	
 }
 
 .category-list a:hover {
 	font-weight: bold;
 	text-decoration: none;
 	border-bottom: 1px solid black;
+	background: url(../img/3.jpg) no-repeat;
 }
 
 .category-list-count {
