@@ -20,10 +20,16 @@
 	display: inline-block;
 	border-bottom: 1px dashed lightgray;
 	color: #57c4fb;
+	background: url(../img/3.jpg) no-repeat;
+	border-radius: 20px;
+    width: 110px;
+    text-align: center;
+	font-size: 18px;
 }
 
 .tags a:hover {
 	font-weight: bold;
 	text-decoration: none;
 	border-bottom: 1px solid black;
+	background: url(../img/3.jpg) no-repeat;
 }
