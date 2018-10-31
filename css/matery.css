@@ -652,8 +652,6 @@ article a {
 
 article a:hover {
     font-weight: bold;
-    color: #42b983;
-    text-decoration: underline;
 }
 
 .articles .row {
