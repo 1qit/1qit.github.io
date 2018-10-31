@@ -813,8 +813,11 @@ article .article-tags .chip:hover {
     border-radius: 15px;
     margin-right: 5px;
     margin-bottom: 2px;
+	background-color: #000;
 }
-
+#artDetail .article-tag .chip:hover {
+	background-color: gray;
+}
 #artDetail .post-info .post-cate {
     margin-right: 15px;
     color: #525f7f;
