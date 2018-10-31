@@ -1,243 +1,364 @@
-
-
-
-	<!DOCTYPE html>
-	<html>
-		
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+    
 
 <head>
-	<title>category: 漏洞类</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="author" content="">
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-   	<!-- css -->
-	<link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Category: 漏洞类, 一秋网络科技官方博客">
+    <meta name="description" content="Category: 漏洞类 | 一秋网络科技官方博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Category: 漏洞类 | 一秋网络科技官方博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-	<!-- favicon -->
-	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
-	
-	<!-- font-awesome -->
-		
-	<link rel="stylesheet" href="/css/font-awesome.min.css">
-	
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
 </head>
-	<body>	
-		<!--Preloader-->
-<div id="preloader">
-	<div id="status">
-		<img alt="PRELOADER" src="/img/logo.png">
-	</div>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color1 nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">一秋网络科技官方博客</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/Submission" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>投稿</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">一秋网络科技官方博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/Submission" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                投稿
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://weibo.com/u/6692637186?is_hot=1" class="tooltipped" target="_blank" data-tooltip="访问我的微博" data-position="top" data-delay="50">
+    <i class="fa fa-weibo"></i>
+</a>
+<a href="mailto:sec@1qit.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
 </div>
-<!--Preloader end-->
+</div>
 
-<!-- header -->
+            </div>
+        </div>
 
-	<header id="header-bg-1" style="background-image: url( /img/1.jpg );">	
-
-	
-		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
-	
-	
-	
-	<!-- current page name or title -->
-	
-		
-		
-			
-			<p class=page-name>分类</p>
-		
-		
-	
-	
-	<!-- others: such as change-bg, time... -->
-	<p class="page-name-other">
-		10/29/2018 
-		<style type="text/css">
-	header:after {
-		content: '';
-		position: relative;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		background: #222222;
-		opacity: .5;
-		z-index: -1;
-	}
-	
-	.change-header-bg{
-		font-style: normal;
-	}
-	.change-header-bg i{
-		text-align: center;
-		cursor: pointer;
-		pointer-events: bounding-box;
-	}
-	@media(max-width:512px) {
-		.change-header-bg {
-			display: none;
-			visibility: hidden;
-		}
-	}
-	
-</style>
-
-	</p>		
+        
+    </nav>
 </header>
 
-<!-- nav -->
-<div id="cd-nav">
-	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">
+                   一叶落知天下秋
+                    </div>
 
-	<nav id="cd-main-nav">
-		<ul>
-			
-      		<li class="fa fa-/">
-           		<a href="/" title="主页">主页</a>	
-      		</li>
-    		
-      		<li class="fa fa-/archives">
-           		<a href="/archives" title="归档">归档</a>	
-      		</li>
-    		
-      		<li class="fa fa-/categories">
-           		<a href="/categories" title="分类">分类</a>	
-      		</li>
-    		
-      		<li class="fa fa-/tags">
-           		<a href="/tags" title="标签">标签</a>	
-      		</li>
-    		
-    		
-        	
-		</ul>
-	</nav>
+                  
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
 
-		<!--main-->
-		<main> 
-		<div class="page-container">
-		<!-- content srart -->
-<div class="am-g am-g-fixed blog-fixed blog-content">
-	<div class="am-u-md-8 am-u-sm-12">
-		<div class="archive">
-
-			<div class="blog-text-center">
-				
-					<i class="fa fa-book">漏洞类</i>
-				
-			</div>  
-
-			
-
-							
-				
-				
-				
-					
-
-					
-					<!--<a href="/archives/2018" class="archive-year">2018</a>-->
-				
-								
-				
-					  
-					<div class="archive-year">
-						<a href="/archives/2018/10">
-							2018-10
-						</a>
-					</div>				
-				  
-				
-				<div class="archive-item">
-					<div class="archive-post-title">									
-						<a href="/2018/10/27/SQL注入漏洞分析/" itemprop="url">SQL注入漏洞分析</a>
-					</div>
-					<div class="archive-post-time">
-						<a href="/2018/10/27/SQL注入漏洞分析/" itemprop="url">10-27</a>
-					</div>
-				</div>		        							
-			
-				
-			    
-		</div>
-	</div>
-</div>
-
-		</div>
-		</main>
-		
-		<!--footer-->
-		<footer>
-	<div class="blog-text-center">
-		<div class="theme-annie-social">
-						
-				
-					<a href="https://weibo.com/u/6692637186" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
-				
-				
-					<a href="mailto:sec@1qit.com" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
-					
-				
-				
-		</div>
-	</div>
-
-	<div  class="blog-text-center">
-		<div class="theme-annie-copyright">
-		吉林省一秋网络科技有限公司 吉ICP备17002063号-1
-		</div>
-	</div>
-
-</footer>
-		<script>
-	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+<script>
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.png)');
 </script>
 
+<main class="content">
+
+    
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">Post Categories</div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/攻击类/" title="攻击类: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">攻击类
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/漏洞类/" title="漏洞类: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F5EEF8;">漏洞类
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/渗透类/" title="渗透类: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">渗透类
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/技术类/" title="技术类: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">技术类
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/27/SQL注入漏洞分析/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="SQL注入漏洞分析">
+                            
+                            <span class="card-title">SQL注入漏洞分析</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">Metinfo 6.1.2 SQL注入漏洞分析
+漏洞简介Metinfo 米拓企业建站系统是一款适合企业网站建设的开源CMS系统,近期互联网上</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/漏洞类/" class="post-category" target="_blank">
+                                    漏洞类
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/SQL注入/" target="_blank">
+                            <span class="chip bg-color">SQL注入</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+</main>
 
 
-
-
-
-
-<script type="text/javascript" src="/js/main.js"></script>
-
+<footer class="page-footer bg-color1">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            吉林省一秋网络科技有限公司 吉ICP备17002063号-1
+        </div>
 		
-		<!--back to top-->
-        <style type="text/css">
-	#totop {
-		background: white;
-		border-radius: 50%;
-		position: fixed;
-		right: 5.4%;
-		bottom: 80px;
-		cursor: pointer;
-	}
-	
-	#totop a {
-		color: #474747;
-		background-color: transparent;
-		padding: 10px;
-		text-decoration: none;
-	}
-	
-	@media(max-width:512px) {
-		#totop {
-			display: none;
-			visibility: hidden;
-		}
-	}
-</style>
+        <div class="col s12 m4 l4 social-link"><a href="https://weibo.com/u/6692637186?is_hot=1" class="tooltipped" target="_blank" data-tooltip="访问我的微博" data-position="top" data-delay="50">
+    <i class="fa fa-weibo"></i>
+</a>
+<a href="mailto:sec@1qit.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
 
-
-	<div id="totop">
-  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+</div>
+    
 	</div>
+</footer>
 
-	</body>
-	</html>
+<div class="progress-bar"></div>
 
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
