@@ -226,6 +226,7 @@ header .button-collapse i {
 
 header .side-nav .mobile-head {
     padding: 0 15px;
+    background-color: #000;
 }
 
 header .side-nav .mobile-head img {
@@ -237,7 +238,7 @@ header .side-nav .mobile-head img {
 header .side-nav .mobile-head .logo-name {
     margin-top: -30px;
     padding-left: 10px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 header .side-nav .mobile-head .logo-desc {
@@ -712,6 +713,9 @@ article .article-tags .chip {
     color: #fff;
     border-radius: 10px;
 	background-color:#6b6666
+}
+article .article-tags .chip:hover {
+	background-color:#000
 }
 
 .prev-next {
