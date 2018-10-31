@@ -712,10 +712,10 @@ article .article-tags .chip {
     line-height: 22px;
     color: #fff;
     border-radius: 10px;
-	background-color:#6b6666
+	background-color:#000
 }
 article .article-tags .chip:hover {
-	background-color:#000
+	background-color:#6b6666
 }
 
 .prev-next {
@@ -1590,7 +1590,7 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, white 0%, white 100%);
     width: 48px;
     height: 48px;
 }
@@ -1598,4 +1598,5 @@ footer .copy-right {
 .top-scroll .btn-floating i {
     line-height: 48px;
     font-size: 1.8rem;
+	color: #000;
 }
