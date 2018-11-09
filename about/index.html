@@ -184,7 +184,7 @@
 <style type="text/css">
     /* don't remove. */
     .about-cover {
-        height: 75vh;
+        height: 60vh;
     }
 </style>
 
@@ -303,21 +303,21 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/" target="_blank">4</a></span>
+    <span class="count"><a href="/" target="_blank">7</a></span>
     <span class="name">Posts</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories" target="_blank">4</a></span>
+    <span class="count"><a href="/categories" target="_blank">6</a></span>
     <span class="name">Categories</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags" target="_blank">4</a></span>
+    <span class="count"><a href="/tags" target="_blank">7</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -332,21 +332,21 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/" target="_blank">4</a></span>
+    <span class="count"><a href="/" target="_blank">7</a></span>
     <span class="name">Posts</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories" target="_blank">4</a></span>
+    <span class="count"><a href="/categories" target="_blank">6</a></span>
     <span class="name">Categories</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags" target="_blank">4</a></span>
+    <span class="count"><a href="/tags" target="_blank">7</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -429,7 +429,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
         },
         xAxis: {
             type: 'category',
-            data: ["2017-10","2017-11","2017-12","2018-01","2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10"]
+            data: ["2017-11","2017-12","2018-01","2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11"]
         },
         yAxis: {
             type: 'value',
@@ -439,7 +439,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                 name: 'Number of posts',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,1,3],
+                data: [0,0,0,0,0,0,0,0,0,0,1,3,3],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -481,7 +481,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"攻击类","value":1},{"name":"漏洞类","value":1},{"name":"渗透类","value":1},{"name":"技术类","value":1}],
+                data: [{"name":"漏洞类","value":2},{"name":"LINUX类","value":1},{"name":"攻击类","value":1},{"name":"技术类","value":1},{"name":"Burpsuite插件类","value":1},{"name":"渗透类","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -505,7 +505,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
         xAxis: [
             {
                 type: 'category',
-                data: ["XSS","SQL注入","渗透","路由器"]
+                data: ["ACME Mini_httpd","SQL注入","LINUX","XSS","路由器","Burpsuite","渗透"]
             }
         ],
         yAxis: [
@@ -518,7 +518,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [1,1,1,1],
+                data: [1,1,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -682,8 +682,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/XSS/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">XSS</span>
+            <a href="/tags/ACME-Mini-httpd/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">ACME Mini_httpd</span>
             </a>
             
             
@@ -694,14 +694,32 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
             
             
             
-            <a href="/tags/渗透/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">渗透</span>
+            <a href="/tags/LINUX/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">LINUX</span>
+            </a>
+            
+            
+            
+            <a href="/tags/XSS/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">XSS</span>
             </a>
             
             
             
             <a href="/tags/路由器/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">路由器</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Burpsuite/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">Burpsuite</span>
+            </a>
+            
+            
+            
+            <a href="/tags/渗透/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">渗透</span>
             </a>
             
             

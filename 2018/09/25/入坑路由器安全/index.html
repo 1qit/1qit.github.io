@@ -6,11 +6,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="入坑路由器安全, 一秋网络科技官方博客">
-    <meta name="description" content="1.QEMU安装 
-2.QEMU 网络配置
-3.启动QEMU
-4.DIR601 踩坑把 D-Link dir601 固件包导入qemu虚拟机,解压并进入squashfs-root 文件夹
-解压web目录直接运行http服务会报各种错误，需要">
+    <meta name="description" content="QEMU安装
+git clone git://git.qemu.org/qemu.git
+cd qemugit
+submodule init
+git submodule update --recursive
+sudo apt install">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -256,12 +257,131 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
 		
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.QEMU安装<br><img src="/2018/09/25/入坑路由器安全/1.jpg" alt=""> </p>
-<p>2.QEMU 网络配置<br><img src="/2018/09/25/入坑路由器安全/2.jpg" alt=""><br><img src="/2018/09/25/入坑路由器安全/3.jpg" alt=""><br><img src="/2018/09/25/入坑路由器安全/4.jpg" alt=""><br><img src="/2018/09/25/入坑路由器安全/5.jpg" alt=""></p>
-<p>3.启动QEMU<br><img src="/2018/09/25/入坑路由器安全/6.jpg" alt=""></p>
-<p>4.DIR601 踩坑<br>把 D-Link dir601 固件包导入qemu虚拟机,解压并进入squashfs-root 文件夹</p>
-<p>解压web目录<br><img src="/2018/09/25/入坑路由器安全/7.jpg" alt=""><br>直接运行http服务会报各种错误，需要手动创建文件夹，以及文件<br>创建文件: /var/run/lighttpd.pid<br>创建文件:/log/lighttpd/error.log<br>WWW目录下 rt文件夹里面的所有文件，移动到 www目录<br><img src="/2018/09/25/入坑路由器安全/8.jpg" alt=""></p>
-<p>5.启动固件<br><img src="/2018/09/25/入坑路由器安全/9.jpg" alt=""></p>
+                <p>QEMU安装</p>
+<pre class=" language-php"><code class="language-php">git clone git<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//git.qemu.org/qemu.git</span>
+cd qemugit
+submodule init
+git submodule update <span class="token operator">--</span>recursive
+sudo apt install libglib2<span class="token number">.0</span> libglib2<span class="token number">.0</span><span class="token operator">-</span>dev
+sudo apt install autoconf automake libtool
+cd qemu <span class="token operator">&amp;&amp;</span> <span class="token punctuation">.</span><span class="token operator">/</span>configuremakesudo make install
+</code></pre>
+<p>QEMU 网络配置</p>
+<p><strong>基手动配置（启动一次就要配置一次）</strong></p>
+<pre class=" language-php"><code class="language-php">$ sudo apt<span class="token operator">-</span>get install uml<span class="token operator">-</span>utilities
+$ sudo tunctl <span class="token operator">-</span>t tap0 <span class="token operator">-</span>u sebao
+$ sudo ifconfig tap0 <span class="token number">172.16</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token operator">/</span><span class="token number">24</span>
+ifconfig tap0
+</code></pre>
+<p><strong>进入qemu虚拟机再次配置</strong></p>
+<pre class=" language-php"><code class="language-php">sudo ifconfig eth0 <span class="token number">172.16</span><span class="token punctuation">.</span><span class="token number">0.2</span><span class="token operator">/</span><span class="token number">24</span>
+</code></pre>
+<p><strong>自动配置</strong></p>
+<pre class=" language-php"><code class="language-php">sudo apt<span class="token operator">-</span>get install uml<span class="token operator">-</span>utilities
+</code></pre>
+<p><strong>sudo vi /etc/network/interfaces</strong></p>
+<pre class=" language-php"><code class="language-php">auto loiface lo
+inet loopback
+auto eth0
+iface eth0 inet dhcp
+iface br0 inet dhcp
+  bridge_ports eth0
+  bridge_maxwait <span class="token number">0</span>
+</code></pre>
+<p><strong>sebao@ubuntu:~$ sudo cat /etc/default/grub</strong></p>
+<pre class=" language-php"><code class="language-php"> <span class="token shell-comment comment"># If you change this file, run </span><span class="token string">'update-grub'</span> afterwards toupdate
+ <span class="token shell-comment comment">#/boot/grub/grub.cfg.</span>
+ <span class="token shell-comment comment"># For full documentation of the options in this file, see:</span>
+ <span class="token shell-comment comment">#   info -f grub -n </span><span class="token string">'Simple configuration'</span>
+ <span class="token constant">GRUB_DEFAULT</span><span class="token operator">=</span><span class="token number">0</span>
+ <span class="token constant">GRUB_HIDDEN_TIMEOUT</span><span class="token operator">=</span><span class="token number">0</span>
+ <span class="token constant">GRUB_HIDDEN_TIMEOUT_QUIET</span><span class="token operator">=</span><span class="token boolean">true</span>
+ <span class="token constant">GRUB_TIMEOUT</span><span class="token operator">=</span><span class="token number">10</span>
+ <span class="token constant">GRUB_DISTRIBUTOR</span><span class="token operator">=</span>`lsb_release <span class="token operator">-</span>i <span class="token operator">-</span>s <span class="token number">2</span><span class="token operator">></span> <span class="token operator">/</span>dev<span class="token operator">/</span><span class="token keyword">null</span> <span class="token operator">||</span> <span class="token keyword">echo</span> Debian`
+ <span class="token constant">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="token operator">=</span><span class="token string">"quiet splash"</span>
+ <span class="token constant">GRUB_CMDLINE_LINUX</span><span class="token operator">=</span><span class="token string">"net.ifnames=0 biosdevname=0"</span>
+ <span class="token shell-comment comment"># Uncomment to enable BadRAM filtering, modify to suit your needs</span>
+ <span class="token shell-comment comment"># This works with Linux (no patch required) and with any kernel that obtains</span>
+ <span class="token shell-comment comment"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)#GRUB_BADRAM=</span><span class="token string">"0x01234567,0xfefefefe,0x89abcdef,0xefefefef"</span>
+ <span class="token shell-comment comment"># Uncomment to disable graphical terminal (grub-pc only)#GRUB_TERMINAL=console</span>
+ <span class="token shell-comment comment"># The resolution used on graphical terminal</span>
+ <span class="token shell-comment comment"># note that you can use only modes which your graphic card supports via VBE</span>
+ <span class="token shell-comment comment"># you can see them in real GRUB with the command `vbeinfo'</span>
+ <span class="token shell-comment comment">#GRUB_GFXMODE=640x480</span>
+ <span class="token shell-comment comment"># Uncomment if you don't want GRUB to pass </span><span class="token string">"root=UUID=xxx"</span> parameter to Linux
+ <span class="token shell-comment comment">#GRUB_DISABLE_LINUX_UUID=true</span>
+ <span class="token shell-comment comment"># Uncomment to disable generation of recovery mode menu entries</span>
+ <span class="token shell-comment comment">#GRUB_DISABLE_RECOVERY=</span><span class="token string">"true"</span>
+ <span class="token shell-comment comment"># Uncomment to get a beep at grub start#GRUB_INIT_TUNE=</span><span class="token string">"480 440 1"</span>
+</code></pre>
+<p><strong>sebao@ubuntu:~$ sudo cat /etc/qemu-ifup</strong></p>
+<pre class=" language-php"><code class="language-php"><span class="token shell-comment comment">#!/bin/sh</span>
+<span class="token keyword">echo</span> <span class="token string">"Executing /etc/qemu-ifup"</span>
+<span class="token keyword">echo</span> <span class="token string">"bridge networking"</span>sudo ifdown eth0
+sudo ifup br0
+<span class="token keyword">echo</span> <span class="token string">"Bringing up $1 for bridge mode"</span>
+sudo <span class="token operator">/</span>sbin<span class="token operator">/</span>ifconfig <span class="token variable">$1</span> <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span> promisc up
+<span class="token keyword">echo</span> <span class="token string">"Adding $1 to br0"</span>
+sudo <span class="token operator">/</span>sbin<span class="token operator">/</span>brctl addif br0 <span class="token variable">$1</span>
+sleep <span class="token number">2</span>
+</code></pre>
+<p>启动QEMU</p>
+<pre class=" language-php"><code class="language-php">qemu<span class="token operator">-</span>system<span class="token operator">-</span>mips <span class="token operator">-</span>M malta <span class="token operator">-</span>kernel vmlinux<span class="token number">-2.6</span><span class="token punctuation">.</span><span class="token number">32</span><span class="token operator">-</span><span class="token number">5</span><span class="token operator">-</span>4kc<span class="token operator">-</span>malta <span class="token operator">-</span>hda debiansqueeze
+mips_standard<span class="token punctuation">.</span>qcow2 <span class="token operator">-</span>append <span class="token string">"root=/dev/sda1 console=tty0"</span> <span class="token operator">-</span>net nic<span class="token punctuation">,</span>macaddr<span class="token operator">=</span><span class="token number">52</span><span class="token punctuation">:</span><span class="token number">54</span><span class="token punctuation">:</span>be<span class="token punctuation">:</span><span class="token number">36</span><span class="token punctuation">:</span><span class="token number">42</span><span class="token punctuation">:</span>a9 <span class="token operator">-</span>net tap
+</code></pre>
+<p>DIR601 踩坑</p>
+<p><strong>把 D-Link dir601 固件包导入qemu虚拟机,解压并进入squashfs-root 文件夹</strong></p>
+<p><strong>解压web目录</strong></p>
+<pre class=" language-php"><code class="language-php">tar zxvf mnt<span class="token operator">/</span>www<span class="token punctuation">.</span>tgz www<span class="token operator">/</span>
+cp usr<span class="token operator">/</span>bin<span class="token operator">/</span>my_cgi<span class="token punctuation">.</span>cgi www<span class="token operator">/</span>
+</code></pre>
+<p><strong>直接运行http服务会报各种错误，需要手动创建文件夹，以及文件</strong></p>
+<p><strong>创建文件: /var/run/lighttpd.pid</strong></p>
+<p><strong>创建文件:/log/lighttpd/error.log</strong></p>
+<p><strong>WWW目录下 rt文件夹里面的所有文件，移动到 www目录</strong></p>
+<pre class=" language-php"><code class="language-php">   chroot <span class="token punctuation">.</span> usr<span class="token operator">/</span>bin<span class="token operator">/</span>lighttpd <span class="token operator">-</span>f mnt<span class="token operator">/</span>lighttpd<span class="token operator">/</span>lighttpd<span class="token punctuation">.</span>conf
+   <span class="token number">57</span>  cd <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>
+   <span class="token number">58</span>  ls
+   <span class="token number">59</span>  cd squashfs<span class="token operator">-</span>root<span class="token operator">/</span>
+   <span class="token number">60</span>  ls
+   <span class="token number">61</span>  cd www<span class="token operator">/</span>
+   <span class="token number">62</span>  ls
+   <span class="token number">63</span>  cd <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>
+   <span class="token number">64</span>  chroot <span class="token punctuation">.</span> usr<span class="token operator">/</span>bin<span class="token operator">/</span>lighttpd <span class="token operator">-</span>f mnt<span class="token operator">/</span>lighttpd<span class="token operator">/</span>lighttpd<span class="token punctuation">.</span>conf 
+   <span class="token number">65</span>  cat mnt<span class="token operator">/</span>lighttpd<span class="token operator">/</span>lighttpd<span class="token punctuation">.</span>conf <span class="token operator">|</span> grep <span class="token string">"lighttpd.pid"</span>
+   <span class="token number">66</span>  cd <span class="token keyword">var</span><span class="token operator">/</span>
+   <span class="token number">67</span>  ls
+   <span class="token number">68</span>  mkdir run
+   <span class="token number">69</span>  ls
+   <span class="token number">70</span>  cd run
+   <span class="token number">71</span>  vi lighttpd<span class="token punctuation">.</span>pid
+   <span class="token number">72</span>  cd <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>
+   <span class="token number">73</span>  chroot <span class="token punctuation">.</span> usr<span class="token operator">/</span>bin<span class="token operator">/</span>lighttpd <span class="token operator">-</span>f mnt<span class="token operator">/</span>lighttpd<span class="token operator">/</span>lighttpd<span class="token punctuation">.</span>conf 
+   <span class="token number">77</span>  mkdir log
+   <span class="token number">78</span>  cd log<span class="token operator">/</span>
+   <span class="token number">79</span>  mkdir lighttpd
+   <span class="token number">80</span>  cd lighttpd<span class="token operator">/</span>
+   <span class="token number">81</span>  vi error<span class="token punctuation">.</span>log
+   <span class="token number">82</span>  cd <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>
+   <span class="token number">83</span>  chroot <span class="token punctuation">.</span> usr<span class="token operator">/</span>bin<span class="token operator">/</span>lighttpd <span class="token operator">-</span>f mnt<span class="token operator">/</span>lighttpd<span class="token operator">/</span>lighttpd<span class="token punctuation">.</span>conf 
+   <span class="token number">84</span>  cd www<span class="token operator">/</span>
+   <span class="token number">85</span>  ls
+   <span class="token number">86</span>  cd rt<span class="token operator">/</span>
+   <span class="token number">87</span>  ls
+   <span class="token number">88</span>  cd <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>
+   <span class="token number">89</span>  ls
+   <span class="token number">90</span>  ls
+   <span class="token number">91</span>  cd rt<span class="token operator">/</span>
+   <span class="token number">92</span>  ls
+   <span class="token number">93</span>  ls <span class="token operator">-</span>ll
+   <span class="token number">94</span>  cd <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>
+   <span class="token number">95</span>  mv rt<span class="token operator">/</span> <span class="token punctuation">.</span>
+   <span class="token number">96</span>  ls
+   <span class="token number">97</span>  mv rt<span class="token operator">/</span><span class="token operator">*</span> <span class="token punctuation">.</span>
+</code></pre>
+<p>启动固件</p>
+<pre class=" language-php"><code class="language-php">chroot <span class="token punctuation">.</span> usr<span class="token operator">/</span>bin<span class="token operator">/</span>lighttpd <span class="token operator">-</span>f mnt<span class="token operator">/</span>lighttpd<span class="token operator">/</span>lighttpd<span class="token punctuation">.</span>conf
+</code></pre>
 
             </div>
             <hr/>
@@ -313,9 +433,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="XSS">
+                        <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="XSS攻击另类玩法">
                         
-                        <span class="card-title">XSS</span>
+                        <span class="card-title">XSS攻击另类玩法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -362,11 +482,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.QEMU安装 
-2.QEMU 网络配置
-3.启动QEMU
-4.DIR601 踩坑把 D-Link dir601 固件包导入qemu虚拟机,解压并进入squashfs-root 文件夹
-解压web目录直接运行http服务会报各种错误，需要</div>
+                    <div class="summary">QEMU安装
+git clone git://git.qemu.org/qemu.git
+cd qemugit
+submodule init
+git submodule update --recursive
+sudo apt install</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-25

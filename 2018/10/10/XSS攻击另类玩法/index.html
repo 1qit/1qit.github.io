@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="XSS, 一秋网络科技官方博客">
+    <meta name="keywords" content="XSS攻击另类玩法, 一秋网络科技官方博客">
     <meta name="description" content="1.XSS攻击管理员后台触发存储型XSS，网站设置http-only，窃取的cookie无效。那么如何在这种情况下利用xss漏洞。无法获取cookie，但是我们可以利用xss漏洞，以管理员的权限，添加一个新的管理员。没错，就是让管理员给我们">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>XSS | 一秋网络科技官方博客</title>
+    <title>XSS攻击另类玩法 | 一秋网络科技官方博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -187,7 +187,7 @@
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                 <div class="brand">
                     <div class="title center-align">
-					XSS
+					XSS攻击另类玩法
                     </div>
 
                   
@@ -252,7 +252,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
 		
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.XSS攻击管理员<br>后台触发存储型XSS，网站设置http-only，窃取的cookie无效。那么如何在这种情况下利用xss漏洞。无法获取cookie，但是我们可以利用xss漏洞，以管理员的权限，添加一个新的管理员。没错，就是让管理员给我们加一个高权限账号。这里我们会用到 JavaScript和Ajax 技术。 利用xmlhttp 发送一个http请求，在后台发送一个添加管理员的post请求。<br><img src="/2018/10/10/XSS攻击另类玩法/xss1.jpg" alt=""><br>2.XSS截取客户的屏幕<br>现在随着技术的进步，前端技术支持的面非常广泛。xss漏洞可以利用html5的 canvas 来进行屏幕的截屏功能，类似于远程控制木马查看对方屏幕功能。这个可以大大的提高对于进一步入侵的信息收集。废话不说直接上代码。这里需要用到一个js库 html2canvas.js<br><img src="/2018/10/10/XSS攻击另类玩法/xss2.jpg" alt=""><br>上面的代码是针对 pc端的截屏，手机端的截屏xss代码有所不同<br><img src="/2018/10/10/XSS攻击另类玩法/xss3.jpg" alt=""><br>这两种服务端获取到的post数据包是 base64格式的 ，我们只要进行转码即可看到对方的屏幕截图。<br>3.现在越来越多的人喜欢用手机查看网页，xss针对手机端的支持也很友好。这里只针对手机端Firefox浏览器说明。xss获取对方经纬度代码<br><img src="/2018/10/10/XSS攻击另类玩法/xss4.jpg" alt=""><br>xss获取电池状态的代码，这里需要用到JavaScript Battery API<br><img src="/2018/10/10/XSS攻击另类玩法/xss5.jpg" alt=""></p>
+                <h2 id="1-XSS攻击管理员"><a href="#1-XSS攻击管理员" class="headerlink" title="1.XSS攻击管理员"></a>1.XSS攻击管理员</h2><p>后台触发存储型XSS，网站设置http-only，窃取的cookie无效。那么如何在这种情况下利用xss漏洞。无法获取cookie，但是我们可以利用xss漏洞，以管理员的权限，添加一个新的管理员。没错，就是让管理员给我们加一个高权限账号。这里我们会用到 JavaScript和Ajax 技术。 利用xmlhttp 发送一个http请求，在后台发送一个添加管理员的post请求。<br><img src="/child/2018/10/10/XSS攻击另类玩法/xss1.jpg" alt=""></p>
+<h2 id="2-XSS截取客户的屏幕"><a href="#2-XSS截取客户的屏幕" class="headerlink" title="2.XSS截取客户的屏幕"></a>2.XSS截取客户的屏幕</h2><p>现在随着技术的进步，前端技术支持的面非常广泛。xss漏洞可以利用html5的 canvas 来进行屏幕的截屏功能，类似于远程控制木马查看对方屏幕功能。这个可以大大的提高对于进一步入侵的信息收集。废话不说直接上代码。这里需要用到一个js库 html2canvas.js<br><img src="/child/2018/10/10/XSS攻击另类玩法/xss2.jpg" alt=""><br>上面的代码是针对 pc端的截屏，手机端的截屏xss代码有所不同<br><img src="/child/2018/10/10/XSS攻击另类玩法/xss3.jpg" alt=""><br>这两种服务端获取到的post数据包是 base64格式的 ，我们只要进行转码即可看到对方的屏幕截图。</p>
+<h2 id="3-XSS对移动端的攻击"><a href="#3-XSS对移动端的攻击" class="headerlink" title="3.XSS对移动端的攻击"></a>3.XSS对移动端的攻击</h2><p>现在越来越多的人喜欢用手机查看网页，xss针对手机端的支持也很友好。这里只针对手机端Firefox浏览器说明。xss获取对方经纬度代码<br><img src="/child/2018/10/10/XSS攻击另类玩法/xss4.jpg" alt=""><br>xss获取电池状态的代码，这里需要用到JavaScript Battery API<br><img src="/child/2018/10/10/XSS攻击另类玩法/xss5.jpg" alt=""></p>
 
             </div>
             <hr/>
@@ -304,19 +306,13 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="神奇的渗透课堂之渗透测试以及测试流程">
+                        <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="渗透课堂">
                         
-                        <span class="card-title">神奇的渗透课堂之渗透测试以及测试流程</span>
+                        <span class="card-title">渗透课堂</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.什么是渗透测试
- 
-2.为什么需要做渗透测试
- 
-3.渗透测试流程
- 
-渗透测试找哪家一秋网络科技渗透测试团队，由经验丰富的专业安全工程师组成，成员也一直在学习和研究最新的漏洞及漏洞利用   和防护，能够提供全方位的漏洞挖掘、最深入的w</div>
+                    <div class="summary">1、什么是渗透测试渗透测试是通过模拟恶意黑客的攻击方法，来评估计算机网络系统安全的一种评估方法。这个过程包括对系统的任   何弱点、技术缺陷或漏洞的主动分析，这个分析是从一个攻击者可能存在的位置来进行的，并且从这个位置有条件  主动利用安全</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-26
@@ -359,11 +355,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/03.png)');
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1.QEMU安装 
-2.QEMU 网络配置
-3.启动QEMU
-4.DIR601 踩坑把 D-Link dir601 固件包导入qemu虚拟机,解压并进入squashfs-root 文件夹
-解压web目录直接运行http服务会报各种错误，需要</div>
+                    <div class="summary">QEMU安装
+git clone git://git.qemu.org/qemu.git
+cd qemugit
+submodule init
+git submodule update --recursive
+sudo apt install</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-25
